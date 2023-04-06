@@ -21,7 +21,7 @@ private:
     socklen_t m_clientLen;
     string m_folderPath;
 
-public:
+publice: 
     WebServer(int port, string folderPath) : m_port(port), m_folderPath(folderPath) {}
     void run() ;
     void init();
