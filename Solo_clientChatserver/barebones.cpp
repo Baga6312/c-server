@@ -29,7 +29,7 @@ BareServer::BareServer() {
     // Bind socket to address
     if (bind(m_serverSocket, (struct sockaddr *)&m_serverAddress, sizeof(m_serverAddress)) < 0) {
         usleep(800000) ; 
-        std::cerr << "[-] Error binding socket to address"<<std::endl ;
+	perror ( "[-] Error binding socket to address " ) ; 
         std::exit(1);
     }else{ 
         usleep (500000); 

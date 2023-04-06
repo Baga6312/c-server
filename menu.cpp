@@ -48,8 +48,7 @@ int main() {
                 ftp.run();
                 break;
             case 5:
-                cout << "Exiting the program." << endl;
-                return 0;
+		exit(0) ;break  
             default:
                 system(CLEAR);
                 cout << "Invalid option. Please try again." << endl;

@@ -1,14 +1,18 @@
-#ifndef MULTICHAT_SERVER_H
-#define MULTICHAT_SERVER_H
+#ifndef SERVER_H
+#define SERVER_H
 
 #include <vector>
 #include <string>
 
-class MultiChatServer {
+class Server {
 public:
-    MultiChatServer(int port): m_port(port), m_server_socket(0) {}
-    void start();
-    void run();
+
+    Server (int port): m_port(port) , m_server_socket(0) { 
+        start(); 
+    }
+    void start(); 
+    void run() ;
+
 
 private:
     void add_client(int client_socket);
@@ -21,4 +25,4 @@ private:
     std::vector<int> m_clients;
 };
 
-#endif // MULTICHAT_SERVER_H
+#endif 

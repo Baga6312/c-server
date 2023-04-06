@@ -16,16 +16,30 @@
 
 
 
-MultiChatServer(port); 
-void start();
 
-void MultiChatServer::add_client(int client_socket) {
+
+
+
+
+
+
+void Server::add_client(int client_socket) {
     std::cout << "Client connected.\n";
     m_clients.push_back(client_socket);
     fcntl(client_socket, F_SETFL, O_NONBLOCK);
 }
 
-void MultiChatServer::remove_client(int client_socket) {
+
+
+
+
+
+
+
+
+
+
+void Server::remove_client(int client_socket) {
     std::cout << "Client disconnected.\n";
     auto position = std::find(m_clients.begin(), m_clients.end(), client_socket);
     if (position != m_clients.end()) {
@@ -34,9 +48,18 @@ void MultiChatServer::remove_client(int client_socket) {
     close(client_socket);
 }
 
-// ...
 
-void MultiChatServer::broadcast_message(int sender, const std::string& message) {
+
+
+
+
+
+
+
+
+
+
+void Server::broadcast_message(int sender, const std::string& message) {
     // Get the current time
     std::time_t current_time = std::time(nullptr);
     std::tm* time_info = std::localtime(&current_time);
@@ -56,11 +79,36 @@ void MultiChatServer::broadcast_message(int sender, const std::string& message) 
     }
 }
 
-void MultiChatServer::process_client_message(int sender, const std::string &message) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void Server::process_client_message(int sender, const std::string &message) {
     broadcast_message(sender, message);
 }
 
-void MultiChatServer::start() {
+
+
+
+
+
+
+
+
+
+
+void Server::start() {
     sockaddr_in server_address{};
     server_address.sin_family = AF_INET;
     server_address.sin_addr.s_addr = INADDR_ANY;
@@ -125,15 +173,39 @@ void MultiChatServer::start() {
     }
 }
 
-void MultiChatServer::run() {
-    MultiChatServer server(1234);
-    server.start();
 
-    Client client("127.0.0.1", 1234);
-    client.start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void Server::run() {
+    Server(1234);
+    Server::start();
+
+    Client("127.0.0.1", 1234);
+    Client:start() ; 
 
 }
 
-
+int main () { 
+    Server 
+    run() ; 
+	return 0 ; 
+} 
 
 

@@ -1,7 +1,10 @@
 #ifndef WEBSERVER_H
 #define WEBSERVER_H
 
+#include <iostream>
 #include <string>
+
+using namespace std ; 
 
 class WebServer {
 private:
@@ -13,8 +16,8 @@ private:
     std::string m_folderPath;
 
 public:
-    WebServer(int port, std::string folderPath);
-    void run();
+    WebServer(int port, string folderPath);
+    WebServer() ;
     void init();
     void serveFile(int clientSock, std::string filePath);
     std::string getContentType(std::string fileExt);

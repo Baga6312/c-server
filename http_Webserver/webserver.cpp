@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class WebServer {
+class webserver {
 private:
     int m_port;
     int m_socket;
@@ -21,8 +21,8 @@ private:
     socklen_t m_clientLen;
     string m_folderPath;
 
-publice: 
-    WebServer(int port, string folderPath) : m_port(port), m_folderPath(folderPath) {}
+public: 
+    webserver(int port, string folderPath) : m_port(port), m_folderPath(folderPath) {}
     void run() ;
     void init();
     void serveFile(int clientSock, string filePath);
@@ -148,7 +148,11 @@ string WebServer::getContentType(string fileExt) {
     }
 }
 
-void run( int argc , char** argv) {
+WebServer::WebServer() { 
+
+}
+
+int main ( int argc , char** argv) {
 
       if (argc < 3) {
         cerr << "Usage: " << argv[0] << " [port] [folder path]\n";
@@ -158,9 +162,9 @@ void run( int argc , char** argv) {
 
     string folderPath = argv[2];
 
-    WebServer server(port , folderPath);
+    WebServer:WebServer(port , folderPath);
+    WebServer server ;
     server.init();
 
+    return 0 ;
 }
-
-
