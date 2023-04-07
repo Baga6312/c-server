@@ -12,22 +12,6 @@
 
 using namespace std;
 
-class webserver {
-private:
-    int m_port;
-    int m_socket;
-    struct sockaddr_in m_serverAddr;
-    struct sockaddr_in m_clientAddr;
-    socklen_t m_clientLen;
-    string m_folderPath;
-
-public: 
-    webserver(int port, string folderPath) : m_port(port), m_folderPath(folderPath) {}
-    void run() ;
-    void init();
-    void serveFile(int clientSock, string filePath);
-    string getContentType(string fileExt);
-};
 
 void WebServer::init() {
     // Create socket
@@ -148,9 +132,6 @@ string WebServer::getContentType(string fileExt) {
     }
 }
 
-WebServer::WebServer() { 
-
-}
 
 int main ( int argc , char** argv) {
 
@@ -162,8 +143,8 @@ int main ( int argc , char** argv) {
 
     string folderPath = argv[2];
 
-    WebServer:WebServer(port , folderPath);
-    WebServer server ;
+    WebServer server =  WebServer(port , folderPath);
+
     server.init();
 
     return 0 ;

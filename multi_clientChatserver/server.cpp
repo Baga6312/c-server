@@ -69,7 +69,7 @@ void Server::broadcast_message(int sender, const std::string& message) {
     std::strftime(time_string, sizeof(time_string), "[%H:%M:%S] ", time_info);
 
     // Print the time, client number, and message to the console
-    std::cout << time_string << "Client #" << sender << ": " << message ;
+    std::cout << time_string << "Client #" << sender - 3  << ": " << message ;
 
     // Broadcast the message to all clients
     for (auto client : m_clients) {
@@ -203,8 +203,8 @@ void Server::run() {
 }
 
 int main () { 
-    Server 
-    run() ; 
+    Server srv = Server(1234) ; 
+    srv.run() ; 
 	return 0 ; 
 } 
 

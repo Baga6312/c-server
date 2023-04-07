@@ -27,32 +27,57 @@ int main() {
         cout << "5. Exit" << endl;
         cin >> option;
 
-        switch (option) {
-            case 1:
-                system(CLEAR);
-                BareServer bare ;
-                bare.run(); 
-                break;
-            case 2:
-                system(CLEAR);
-                MultiChatServer::run();
-                break;
-            case 3:
-                system(CLEAR);
-                WebServer server ; 
-                server.run(8000 , "/home/dt/Code/web/");
-                break;
-            case 4:
-                system(CLEAR);
-                FTPServer ftp ; 
-                ftp.run();
-                break;
-            case 5:
-		exit(0) ;break  
-            default:
-                system(CLEAR);
-                cout << "Invalid option. Please try again." << endl;
-                break;
+        // switch (option) {
+        //     case 1:
+        //         system(CLEAR);
+        //         BareServer bare = BareServer() ;
+        //         bare.run();
+        //         break;
+        //     case 2:
+        //         system(CLEAR);
+        //         Server srv = Server(1234);
+        //         srv.run();
+        //         break;
+        //     case 3:
+        //         system(CLEAR);
+        //         WebServer server = WebServer(8000, "/home/dt/Code/web/") ; 
+        //         server.init();
+        //         break;
+        //     case 4:
+        //         system(CLEAR);
+        //         FTPServer ftp = FTPServer(5000 , "/home/dt/Code/"); 
+        //         ftp.run();
+        //         break;
+        //     case 5:
+		//         exit(0) ;break; 
+        //     default:
+        //         system(CLEAR);
+        //         cout << "Invalid option. Please try again." << endl;
+        //         break;
+        // }
+
+
+    if (option == 1 ) { 
+        system(CLEAR);
+            BareServer bare = BareServer() ;
+            bare.run();
+        }
+    else if ( option == 2 ) { 
+        system(CLEAR);
+            Server srv = Server(1234);
+            srv.run();
+    }else if (option == 3 ) {
+        system(CLEAR);
+            WebServer server = WebServer(8000, "/home/dt/Code/web/") ; 
+            server.init();
+    } else if (option == 4 ) { 
+        system(CLEAR);
+            FTPServer ftp = FTPServer(5000 , "/home/dt/Code/"); 
+            ftp.run();
+    } else if (option == 5 ) {
+        exit(0) ; 
+    }else { 
+            cout << "Invalid option. Please try again." << endl;
         }
     }
 

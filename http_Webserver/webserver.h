@@ -16,8 +16,7 @@ private:
     std::string m_folderPath;
 
 public:
-    WebServer(int port, string folderPath);
-    WebServer() ;
+    WebServer(int port, string folderPath): m_port(port) , m_folderPath(folderPath){}
     void init();
     void serveFile(int clientSock, std::string filePath);
     std::string getContentType(std::string fileExt);

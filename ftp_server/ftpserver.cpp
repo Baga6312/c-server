@@ -16,7 +16,7 @@
     FTPServer::FTPServer(int port_number, std::string root_directory) {
         server_socket = socket(AF_INET, SOCK_STREAM, 0);
         if (server_socket == -1) {
-            std::cerr << "Error creating socket" << std::endl;
+            perror ("[-] Error creating socket ") ; 
             exit(EXIT_FAILURE);
         }
 
@@ -25,7 +25,7 @@
         server_address.sin_port = htons(port_number);
 
         if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) < 0) {
-            std::cerr << "Error binding socket" << std::endl;
+            perror ("[-] Error creating socket ") ; 
             exit(EXIT_FAILURE);
         }
 
@@ -45,7 +45,7 @@
         client_address_size = sizeof(client_address);
         client_socket = accept(server_socket, (struct sockaddr *)&client_address, (socklen_t *)&client_address_size);
         if (client_socket < 0) {
-            std::cerr << "Error accepting connection" << std::endl;
+            perror ("[-] Error accepting connection  ") ; 
             exit(EXIT_FAILURE);
         }
 
@@ -167,7 +167,7 @@
             closedir(dir);
         } else {
             // could not open directory
-            std::cerr << "Error opening directory: " << strerror(errno) << std::endl;
+            perror("Error opening directory") ; 
         }
    }
    void FTPServer::run() {
@@ -179,6 +179,11 @@
 
 }
 
+int main () { 
+    FTPServer ftp = FTPServer(5000 , "/home/dt/Code/CC++") ; 
+    ftp.run();
+    return 0 ; 
+}
 
 
 
