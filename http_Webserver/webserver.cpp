@@ -76,39 +76,45 @@ void WebServer::serveFile(int clientSock, string filePath) {
 
     // Prepend folder path to filePath
     string fullFilePath = m_folderPath + filePath;
-
-    // Check if file exists
+    cout <<""<<endl ; 
+    cout << "Attempting to open file: " << fullFilePath << endl;
     ifstream file(fullFilePath);
-    if (!file.is_open()) {
+         if (!file.is_open()) {
         cerr << "Error opening file: " << fullFilePath << endl;
-        return;
-    }
+        perror("file ");
+    } else {
+        // Read file contents into string
+        stringstream buffer;
+        buffer << file.rdbuf();
+        string fileContents = buffer.str();
 
-    // Read file contents into string
-    stringstream buffer;
-    buffer << file.rdbuf();
-    string fileContents = buffer.str();
+        // Get file extension
+        size_t dotPos = filePath.rfind(".");
+        string fileExt = "";
+        if (dotPos != string::npos) {
+            fileExt = filePath.substr(dotPos + 1);
+        }
 
-    // Get file extension
-    size_t dotPos = filePath.rfind(".");
-    string fileExt = "";
-    if (dotPos != string::npos) {
-        fileExt = filePath.substr(dotPos + 1);
-    }
-
-    // Send HTTP headers to client
-    ostringstream headers;
+        // Send HTTP headers to client
+        ostringstream headers;
         headers << "HTTP/1.1 200 OK\r\n";
-    headers << "Content-Type: " << getContentType(fileExt) << "\r\n";
-    headers << "Content-Length: " << fileContents.length() << "\r\n";
-    headers << "\r\n";
+        headers << "Content-Type: " << getContentType(fileExt) << "\r\n";
+        headers << "Content-Length: " << fileContents.length() << "\r\n";
+        headers << "\r\n";
 
-    // Send headers and file contents to client
-    send(clientSock, headers.str().c_str(), headers.str().length(), 0);
-    send(clientSock, fileContents.c_str(), fileContents.length(), 0);
+        // Send headers and file contents to client
+        send(clientSock, headers.str().c_str(), headers.str().length(), 0);
+        send(clientSock, fileContents.c_str(), fileContents.length(), 0);
 
-    cout << "Served file: " << fullFilePath << endl;
+        cout << "    |" << endl;
+        cout << "  Served file: " << fullFilePath << endl;
+        cout << "" << endl;
+    }
+
+    // Close the file
+    file.close();
 }
+
 
 string WebServer::getContentType(string fileExt) {
     if (fileExt == "html" || fileExt == "htm") {
