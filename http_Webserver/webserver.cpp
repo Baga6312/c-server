@@ -59,18 +59,21 @@ void WebServer::init() {
         size_t start = request.find("GET /") + 5;
         size_t end = request.find(" HTTP");
         string filePath = request.substr(start, end - start);
+        
+        string filename ; 
 
+        
         // Serve file to client
-        serveFile(clientSock, filePath);
+        serveFile(clientSock, filePath , filename);
 
         // Close client socket
         close(clientSock);
     }
 }
 
-void WebServer::serveFile(int clientSock, string filePath) {
+void WebServer::serveFile(int clientSock, string filePath, string filename ) {
     // If filePath is empty or '/', serve index.html
-    if (filePath == "" || filePath == "/") {
+    if (filePath == "" || filePath == ".") {
         filePath = "index.html";
     }
 

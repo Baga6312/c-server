@@ -64,7 +64,10 @@ int main() {
             srv.run();
     }else if (option == 3 ) {
         system(CLEAR);
-            WebServer server = WebServer(8000, "/home/dt/Code/web/") ; 
+            string filename ; 
+            cout << "insert file name " << endl ; 
+            cin >> filename ;
+            WebServer server = WebServer(8000, "." , filename) ; 
             server.init();
     } else if (option == 4 ) { 
         system(CLEAR);

@@ -14,11 +14,12 @@ private:
     struct sockaddr_in m_clientAddr;
     socklen_t m_clientLen;
     std::string m_folderPath;
+    std::string m_filename;
 
 public:
-    WebServer(int port, string folderPath): m_port(port) , m_folderPath(folderPath){}
+    WebServer(int port, string folderPath , string filename ): m_port(port) , m_folderPath(folderPath) , m_filename(filename){}
     void init();
-    void serveFile(int clientSock, std::string filePath);
+    void serveFile(int clientSock, std::string filePath , std::string filename);
     std::string getContentType(std::string fileExt);
 };
 
