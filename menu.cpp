@@ -1,14 +1,10 @@
 #include <iostream>
-#include "ftp_server/ftpserver.h"
-#include "http_Webserver/webserver.h"
-#include "multi_clientChatserver/server.h" 
-#include "Solo_clientChatserver/barebones.h" 
+#include "ftp_server/ftpserver.cpp"
+#include "http_Webserver/webserver.cpp"
+#include "multi_clientChatserver/server.cpp" 
+#include "Solo_clientChatserver/barebones.cpp" 
 
-#ifdef _WIN32
-#define CLEAR "cls"
-#else
 #define CLEAR "clear"
-#endif
 
 using namespace std;
 

@@ -109,13 +109,13 @@ void  BareServer::run() {
     server.close();
 }
 
-int main() { 
+//int main() { 
 
-	BareServer bare ; 
+//	BareServer bare ; 
 
-	bare.run() ; 
-	return 0 ; 
-} 
+//	bare.run() ; 
+//	return 0 ; 
+//} 
 
 
 

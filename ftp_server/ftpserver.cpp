@@ -179,11 +179,11 @@
 
 }
 
-int main () { 
-    FTPServer ftp = FTPServer(5000 , "/home/dt/Code/CC++") ; 
-    ftp.run();
-    return 0 ; 
-}
+// int main () { 
+//     FTPServer ftp = FTPServer(5000 , "/home/dt/Code/CC++") ; 
+//     ftp.run();
+//     return 0 ; 
+// }
 
 
 

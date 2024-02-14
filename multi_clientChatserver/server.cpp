@@ -202,10 +202,10 @@ void Server::run() {
 
 }
 
-int main () { 
-    Server srv = Server(1234) ; 
-    srv.run() ; 
-	return 0 ; 
-} 
+// int main () { 
+//     Server srv = Server(1234) ; 
+//     srv.run() ; 
+// 	return 0 ; 
+// } 
 
 

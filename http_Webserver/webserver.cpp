@@ -139,19 +139,19 @@ string WebServer::getContentType(string fileExt) {
 }
 
 
-int main ( int argc , char** argv) {
+// int main ( int argc , char** argv) {
 
-      if (argc < 3) {
-        cerr << "Usage: " << argv[0] << " [port] [folder path]\n";
-    }
+//       if (argc < 3) {
+//         cerr << "Usage: " << argv[0] << " [port] [folder path]\n";
+//     }
 
-    int port = atoi(argv[1]);
+//     int port = atoi(argv[1]);
 
-    string folderPath = argv[2];
+//     string folderPath = argv[2];
 
-    WebServer server =  WebServer(port , folderPath);
+//     WebServer server =  WebServer(port , folderPath);
 
-    server.init();
+//     server.init();
 
-    return 0 ;
-}
+//     return 0 ;
+// }
