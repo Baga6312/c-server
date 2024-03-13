@@ -1,6 +1,16 @@
 # Simple multiple Servers made for you writing in C++ 
 
-### Introduction 
+## Table of Contents
+
+<!-- TOC depthFrom:2 -->
+
+
+- [1. Introduction](##Introduction)
+- [2. Prerequisites](##Prerequisites)
+- [3. Compiling](##Compiling)
+- [4. Usage](##Usage)
+
+## Introduction 
 
 This is just a simple C++ server was made for a school project 
 
