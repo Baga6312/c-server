@@ -34,9 +34,3 @@ open the `menu` application and u will be prompt by the options
  
  #### easy enough need to input the number option
  
- ## Troubleshooting 
- - if you come a cross an error during compiling on windows , everything is up to you , you chose to use windows 
- 
-  - for Linux try to update the following packages `cmake` `clang` `libc_64`
-  
- #### these are commune failure during the compilation because you are not updating your system regularly 
