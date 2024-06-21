@@ -41,6 +41,3 @@ open the `menu` application and u will be prompt by the options
 >3. HTTP Web Server
 >4. FTP Server
 >5. Exit
- 
- #### easy enough need to input the number option
- 
