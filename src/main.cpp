@@ -1,8 +1,8 @@
 #include <iostream>
-#include "ftp_server/ftpserver.cpp"
-#include "http_Webserver/webserver.cpp"
-#include "multi_clientChatserver/server.cpp" 
-#include "Solo_clientChatserver/barebones.cpp" 
+#include "ftpserver.cpp"
+#include "webserver.cpp"
+#include "server.cpp" 
+#include "barebones.cpp" 
 
 #define CLEAR "clear"
 
@@ -67,7 +67,7 @@ int main() {
             string filename ; 
             cout << "insert file name " << endl ; 
             cin >> filename ;
-            WebServer server = WebServer(8000, "." , filename) ; 
+            WebServer server = WebServer(8000, "",  filename) ; 
             server.init();
     } else if (option == 4 ) { 
         system(CLEAR);

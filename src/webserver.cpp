@@ -73,7 +73,7 @@ void WebServer::init() {
 
 void WebServer::serveFile(int clientSock, string filePath, string filename ) {
     // If filePath is empty or '/', serve index.html
-    if (filePath == "" || filePath == ".") {
+    if (filePath == "" ) {
         filePath = "index.html";
     }
 

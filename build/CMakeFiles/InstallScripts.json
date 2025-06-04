@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/dt/repo/c-server/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
